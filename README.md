@@ -8,6 +8,8 @@
 
 Repositório para conteúdo e projetos construídos durante o desenvolvimento da formação de React Nanodegree da Udacity.
 
+Artigo: http://blog.renanlopes.com/2017/08/19/react-fundamentos/
+
 ### Create React App
 
 O Facebook criou uma esta ferramenta para ajudar no desenvolvimento de aplicações usando React, pois, os browsers não entendem o padrão usado pelo React que é o JSX e nem o EcmaScript 2015 o ES6 e para que nosso código possa se tornar em arquivos estáticos (HTML, CSS e JavaScript) que o browser "interprete" precisamos transpilar nosso código (Ferramentas como Webpack e Babel) só que toda essa configuração é trabalhosa e leva certo tempo para deixar tudo funcionando e por estes motivos o recomendado é usar as ferramentas desenvolvidas pelo time de engenharia do Facebook o "create-react-app".
