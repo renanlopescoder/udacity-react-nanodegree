@@ -1,4 +1,4 @@
-## My Reads A Book Lending App
+## My Reads App
 
 ##### Português
 
@@ -7,14 +7,39 @@ Projeto de curso desenvolvido em React Nanodegree da Udacity aplicando a manipul
 ### Instalação e Execução do Projeto
 
 - Download ou clone do repositório
-- Acesse via terminal o diretório ```./myread```
-- Execute o comando npm install
-- Execute o comando npm start
+- Acesse via terminal o diretório ```./myreads```
+- Execute o comando ```npm instal```
+- Execute o comando ```npm start```
+- Acesse http://localhost/3000 no browser
 
 ### Pacotes instalados
 
-npm install --save react-router-dom Installed
-npm install --save escape-string-regexp Installed
+npm install --save react-router-dom
+
+#### Extra
+
+1. Autocomplete no campo de pesquisa
+2. Avaliação do livro
+3. Adicionado novas fontes e icones
 
 ##### English
 
+Project built for the Udacity React Nanodegree applying state manipulation and navigation with React Router.
+
+### Installation and execution
+
+- Download or clone the repository
+- Access ```./myreads``` folder with the terminal
+- Run ```npm instal```
+- Run ```npm start```
+- Open this link http://localhost/3000 in your browser
+
+### Packages installed
+
+npm install --save react-router-dom
+
+#### Extra
+
+1. Autocomplete in search field
+2. Book rating
+3. Added new fonts and icons

@@ -4,7 +4,6 @@ import SearchBooks from './SearchBooks'
 import BooksShelves from './BooksShelves'
 import './App.css'
 import { Route } from 'react-router-dom'
-import { escapeRegExp } from 'escape-string-regexp'
 
 class App extends React.Component {
   state = {
@@ -18,22 +17,48 @@ class App extends React.Component {
   }
 
   updateQuery = (query) => BooksAPI.search(query, 20).then((books) => {
-    this.setState({ books:books, query: query })
+      this.setState({ books: books, query: query })
   })
 
-  updateMyBook() {
+  updateBook  = (book, shelf) => {
+    book.shelf = shelf
+    this.setState((state) => ({ state }))
+    BooksAPI.update(book, shelf).then(()=> {}, (error) => {
+      alert('Sua alteração não pode ser efetuada!')
+      BooksAPI.getAll().then((myBooks) => this.setState({ myBooks }))
+    })
+  }
 
+  rateBook = (book, shelf, rate) => {
+    book.rate = JSON.parse(rate)
+    this.setState((state) => ({ state }))
+    BooksAPI.update(book, shelf).then(()=> {}, (error) => {
+      alert('Sua alteração não pode ser efetuada!')
+      BooksAPI.getAll().then((myBooks) => this.setState({ myBooks }))
+    })
+  }
+
+  addBook = (book, shelf) => {
+    book.shelf = shelf
+    this.setState((oldState) => ({
+        myBooks: oldState.myBooks.concat([ book ])
+      })
+    )
+    BooksAPI.update(book, shelf).then(()=> {}, (error) => {
+      alert('Sua alteração não pode ser efetuada!')
+      BooksAPI.getAll().then((myBooks) => this.setState({ myBooks }))
+    })
   }
 
   render() {
     return (
       <div className="app">
         <Route path="/search" render={() => (
-          <SearchBooks books={this.state.books} updateQuery={this.updateQuery} updateMyBook={this.updateMyBook}/>
+          <SearchBooks books={this.state.books} updateQuery={this.updateQuery} addBook={this.addBook}/>
         )}>
         </Route>
         <Route exact path="/" render={() => (
-          <BooksShelves myBooks={this.state.myBooks} onChangeBook={this.onChangeBook} />
+          <BooksShelves myBooks={this.state.myBooks} updateBook={this.updateBook} rateBook={this.rateBook} />
         )}>
         </Route>
       </div>
